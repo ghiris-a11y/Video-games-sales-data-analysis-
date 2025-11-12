@@ -66,11 +66,12 @@ fig6 = px.scatter(filtered_df, x='NA_Sales', y='EU_Sales', color='Genre', hover_
                   size='Global_Sales', title='Scatter Plot: NA vs EU Sales')
 st.plotly_chart(fig6)
 
-
-# 7. Histogram: Distribution of Global Sales
-st.subheader("Histogram: Distribution of Global Sales")
-fig7 = px.histogram(filtered_df, x='Global_Sales', nbins=30, title='Distribution of Global Sales')
+# 7. Treemap: Genre → Platform → Global Sales
+st.subheader("Treemap: Genre → Platform → Global Sales")
+fig7 = px.treemap(filtered_df, path=['Genre', 'Platform', 'Name'], values='Global_Sales',
+                  color='Genre', title='Treemap of Sales by Genre and Platform')
 st.plotly_chart(fig7)
+
 
 # 9. Heatmap: Correlation between Regional Sales
 st.subheader("Heatmap: Correlation between Regional Sales")
