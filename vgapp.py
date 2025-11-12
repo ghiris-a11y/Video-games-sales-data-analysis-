@@ -53,6 +53,33 @@ regional_sales.columns = ['Region', 'Sales']
 fig4 = px.bar(regional_sales, x='Region', y='Sales', title='Regional Sales Comparison')
 st.plotly_chart(fig4)
 
+
+# 5. Bubble Chart: Global Sales vs Year by Genre
+st.subheader("Bubble Chart: Global Sales vs Year by Genre")
+fig5 = px.scatter(filtered_df, x='Year', y='Global_Sales', size='Global_Sales', color='Genre',
+                  hover_name='Name', title='Bubble Chart: Global Sales vs Year')
+st.plotly_chart(fig5)
+
+# 6. Scatter Plot: NA Sales vs EU Sales by Genre
+st.subheader("Scatter Plot: NA Sales vs EU Sales by Genre")
+fig6 = px.scatter(filtered_df, x='NA_Sales', y='EU_Sales', color='Genre', hover_name='Name',
+                  size='Global_Sales', title='Scatter Plot: NA vs EU Sales')
+st.plotly_chart(fig6)
+
+
+# 7. Histogram: Distribution of Global Sales
+st.subheader("Histogram: Distribution of Global Sales")
+fig8 = px.histogram(filtered_df, x='Global_Sales', nbins=30, title='Distribution of Global Sales')
+st.plotly_chart(fig7)
+
+# 9. Heatmap: Correlation between Regional Sales
+st.subheader("Heatmap: Correlation between Regional Sales")
+corr = filtered_df[['NA_Sales', 'EU_Sales', 'JP_Sales', 'Other_Sales', 'Global_Sales']].corr()
+fig9 = px.imshow(corr, text_auto=True, title='Correlation Heatmap')
+st.plotly_chart(fig8)
+
+
+
 # Footer
 st.markdown("---")
 
