@@ -69,13 +69,13 @@ st.plotly_chart(fig6)
 
 # 7. Histogram: Distribution of Global Sales
 st.subheader("Histogram: Distribution of Global Sales")
-fig8 = px.histogram(filtered_df, x='Global_Sales', nbins=30, title='Distribution of Global Sales')
+fig7 = px.histogram(filtered_df, x='Global_Sales', nbins=30, title='Distribution of Global Sales')
 st.plotly_chart(fig7)
 
 # 9. Heatmap: Correlation between Regional Sales
 st.subheader("Heatmap: Correlation between Regional Sales")
 corr = filtered_df[['NA_Sales', 'EU_Sales', 'JP_Sales', 'Other_Sales', 'Global_Sales']].corr()
-fig9 = px.imshow(corr, text_auto=True, title='Correlation Heatmap')
+fig8 = px.imshow(corr, text_auto=True, title='Correlation Heatmap')
 st.plotly_chart(fig8)
 
 
